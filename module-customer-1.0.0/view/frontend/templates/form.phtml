@@ -1,0 +1,38 @@
+<form class="form-address-edit"
+      action="<?= $escaper->escapeUrl($block->getUrl('test/status/save')) ?>"
+      method="post"
+      id="form-validate"
+      enctype="multipart/form-data">
+    <fieldset class="fieldset info">
+        <?= $block->getBlockHtml('formkey') ?>
+        <div class="field">
+            <label class="label" for="status">
+                <span><?= $block->escapeHtml(__('Status')) ?></span>
+            </label>
+            <div class="control" data-role="customer-status" data-bind="scope: 'customer-status'">
+                <input data-bind="value: customerstatus().status"
+                       type="text"
+                       id="customer_status"
+                       name="customer_status"
+                       title="<?= $block->escapeHtmlAttr(__('Status')) ?>"
+                       class="input-text"/>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="fieldset additional_info"></fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary" title="<?= $block->escapeHtmlAttr(__('Save')) ?>">
+                <span><?= $block->escapeHtml(__('Save')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+    {
+        "[data-role=customer-status]": {
+            "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout(); ?>
+        }
+    }
+</script>

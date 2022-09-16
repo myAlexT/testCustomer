@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceBlock name="top.links">
+            <block class="Magento\Theme\Block\Html\Header" name="header" as="header" template="Test_Customer::html/header.phtml" before="-">
+                <arguments>
+                    <argument name="show_part" xsi:type="string">welcome</argument>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="customer-status" xsi:type="array">
+                                <item name="component" xsi:type="string">Test_Customer/js/section</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
